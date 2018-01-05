@@ -14,5 +14,7 @@ namespace TrashCity.Models
         public string CustomerLastName { get; set; }
         public string CustomerAddress { get; set; }
         public int CustomerZip { get; set; }
+        public double AmountOwed { get; set; }
+        public DayOfWeek CollectionDay { get; set; }
     }
 }

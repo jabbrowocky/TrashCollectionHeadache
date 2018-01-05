@@ -3,14 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TrashCity.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace TrashCity.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            return View();
+            var userId = User.Identity.GetUserId();
+            if (User.IsInRole("Customer"))
+            {
+                return RedirectToAction("Index", "CustomerModels");
+            }
+            else if (User.IsInRole("Employee"))
+            {
+                return RedirectToAction("Index", "EmployeeModels");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult About()
