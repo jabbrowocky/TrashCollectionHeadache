@@ -1,0 +1,55 @@
+﻿@model IEnumerable<TrashCity.Models.CustomerModel>
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerZip)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerZip)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.CustomerId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.CustomerId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.CustomerId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

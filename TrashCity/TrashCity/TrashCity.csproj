@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomerModelsController.cs" />
     <Compile Include="Controllers\EmployeeModelsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -215,6 +216,10 @@
     <Compile Include="Migrations\201801050323010_testing up method.cs" />
     <Compile Include="Migrations\201801050323010_testing up method.Designer.cs">
       <DependentUpon>201801050323010_testing up method.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801051911033_added customer model.cs" />
+    <Compile Include="Migrations\201801051911033_added customer model.Designer.cs">
+      <DependentUpon>201801051911033_added customer model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -291,6 +296,11 @@
     <Content Include="Views\EmployeeModels\Edit.cshtml" />
     <Content Include="Views\EmployeeModels\Index.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\CustomerModels\Create.cshtml" />
+    <Content Include="Views\CustomerModels\Delete.cshtml" />
+    <Content Include="Views\CustomerModels\Details.cshtml" />
+    <Content Include="Views\CustomerModels\Edit.cshtml" />
+    <Content Include="Views\CustomerModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801050323010_testing up method.resx">
       <DependentUpon>201801050323010_testing up method.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801051911033_added customer model.resx">
+      <DependentUpon>201801051911033_added customer model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

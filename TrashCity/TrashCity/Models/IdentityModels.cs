@@ -31,5 +31,7 @@ namespace TrashCity.Models
         }
 
         public System.Data.Entity.DbSet<TrashCity.Models.EmployeeModel> EmployeeModels { get; set; }
+
+        public System.Data.Entity.DbSet<TrashCity.Models.CustomerModel> CustomerModels { get; set; }
     }
 }
