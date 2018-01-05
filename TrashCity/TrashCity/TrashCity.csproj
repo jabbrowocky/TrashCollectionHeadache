@@ -199,6 +199,8 @@
     <Compile Include="Controllers\EmployeeModelsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -288,9 +290,11 @@
     <Content Include="Views\EmployeeModels\Details.cshtml" />
     <Content Include="Views\EmployeeModels\Edit.cshtml" />
     <Content Include="Views\EmployeeModels\Index.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
