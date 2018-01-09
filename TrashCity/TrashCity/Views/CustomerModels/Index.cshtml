@@ -10,38 +10,48 @@
     <title>Index</title>
 </head>
 <body>
-    
-    <br />
-    <h1>
-        Your Trash Collection Portal
-    </h1>
-    <br />
-    <h3>
-        @{ var userName = Model.CustomerFirstName;}
-        @{ var user = HttpContext.Current.User.Identity.Name; }
-
+    <div class="jumbotron">        
+        <h1>
+            Your Trash Collection Portal
+        </h1>
+        <br />
+        <h3>
+            @{ var userName = Model.CustomerFirstName;}
             Hello! @userName
-    </h3>
-        <br /><br />
-        <div>
-            @{  
-                var collectionDay = Model.CollectionDay;
-            }
-            <h4>Edit Collection Day: <br /></h4>
-            <h4>(Currently set to: @collectionDay)</h4>
-            
-           @Html.ActionLink("Edit", "SetCollectionDay", routeValues: new { id = Model.CustomerId }, htmlAttributes: new { title = "Editerino", @class = "btn btn-default btn-xs" })
+        </h3>
+    </div>    
+    @{ var user = HttpContext.Current.User.Identity.Name; }
+    
+    <br /><br />
+    <div class="row">
+        <div class="col-md-4">
+        @{
+            var collectionDay = Model.CollectionDay;
+        }
+        <h4>Edit Collection Day: <br /></h4>
+        <h4>(Currently set to: @collectionDay)</h4>
+
+        @Html.ActionLink("Edit", "SetCollectionDay", routeValues: new { id = Model.CustomerId }, htmlAttributes: new { title = "Editerino", @class = "btn btn-default btn-xs" })
         </div>
-        <div>
-            <h4><br /> 
-                Schedule a vacation: (coming soon)
+        <div class="col-md-4">
+            <h4>
+                Set Temporary Collection Day(under construction)
             </h4>
         </div>
+        <div class="col-md-4">
+            <h4>                
+                Schedule a vacation: (under construction)
+                @*@Html.ActionLink()*@
+            </h4>
+        </div>
+    </div>
+    
     <br />
     <br />
-    <div>        
-        
+    <div>
+
     </div>
 
 </body>
+
 </html>
