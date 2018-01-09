@@ -29,10 +29,10 @@
                 @Html.HiddenFor(model => model.AmountOwed)                
                 @*@Html.HiddenFor(model => model.User)*@
                 @Html.LabelFor(m => m.CollectionDay)                
-                @*@{  var selectList = Enum.GetValues(typeof(DayOfWeek)).Cast<DayOfWeek>().Where(e => e != DayOfWeek.Saturday && e != DayOfWeek.Sunday).Select(e => new SelectListItem { Value = ((int)e).ToString(), Text = e.ToString() });
-                }*@
-
-                @Html.EnumDropDownListFor(model => model.CollectionDay, new { @class = "form-control" })   
+                @{  var selectList = Enum.GetValues(typeof(DayOfWeek)).Cast<DayOfWeek>().Where(e => e != DayOfWeek.Saturday && e != DayOfWeek.Sunday).Select(e => new SelectListItem { Value = ((int)e).ToString(), Text = e.ToString() });
+                }
+                
+                    @Html.DropDownListFor(model => model.CollectionDay, selectList, new { @class = "form-control" })   
                     
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
