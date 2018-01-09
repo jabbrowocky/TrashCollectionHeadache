@@ -60,13 +60,53 @@ namespace TrashCity.Controllers
 
             if (ModelState.IsValid)
             {
+                
                 db.Entry(customerModel).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View();
         }
+        public ActionResult Schedule()
+        {
+            var id = User.Identity.GetUserId();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            CustomerModel customerModel = new CustomerModel();
+            foreach (CustomerModel customer in db.CustomerModels)
+            {
+                if (customer.UserId == id)
+                {
+                    customerModel = customer;
+                }
 
+            }
+            ScheduleManager schedule = new ScheduleManager();
+            schedule.CustomerId = customerModel.CustomerId;
+            return View(schedule);
+            
+        }
+
+        // POST: ScheduleManagers/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Schedule([Bind(Include = "CustomerId,dateToChange,tempCollectionDay")] ScheduleManager scheduleManager)
+        {
+            if (ModelState.IsValid)
+            {
+
+                db.ScheduleManager.Add(scheduleManager);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.CustomerId = new SelectList(db.CustomerModels, "CustomerId", "CustomerFirstName", scheduleManager.CustomerId);
+            return View(scheduleManager);
+        }
         // GET: CustomerModels/Details/5
         public ActionResult Details(int? id)
         {

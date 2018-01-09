@@ -37,9 +37,9 @@ namespace TrashCity.Controllers
         }
 
         // GET: ScheduleManagers/Create
-        public ActionResult Create()
+        public ActionResult Schedule()
         {
-            ViewBag.CustomerId = new SelectList(db.CustomerModels, "CustomerId", "CustomerFirstName");
+            
             return View();
         }
 
@@ -48,10 +48,11 @@ namespace TrashCity.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerId,dateToChange,tempCollectionDay")] ScheduleManager scheduleManager)
+        public ActionResult Schedule([Bind(Include = "CustomerId,dateToChange,tempCollectionDay")] ScheduleManager scheduleManager, CustomerModel customer)
         {
             if (ModelState.IsValid)
             {
+                
                 db.ScheduleManager.Add(scheduleManager);
                 db.SaveChanges();
                 return RedirectToAction("Index");

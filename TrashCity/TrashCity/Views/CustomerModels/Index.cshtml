@@ -2,14 +2,7 @@
 
 
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
     <div class="jumbotron">        
         <h1>
             Your Trash Collection Portal
@@ -29,13 +22,21 @@
             var collectionDay = Model.CollectionDay;
         }
         <h4>Edit Collection Day: <br /></h4>
-        <h4>(Currently set to: @collectionDay)</h4>
-
+        @{ if (collectionDay != null)
+            {
+        <h4>(Currently set to: <font color="red">@collectionDay)</font></h4>
+            }
+            else
+            {
+        <h4>Please set your collection day.</h4>     
+            }
+          }
         @Html.ActionLink("Edit", "SetCollectionDay", routeValues: new { id = Model.CustomerId }, htmlAttributes: new { title = "Editerino", @class = "btn btn-default btn-xs" })
         </div>
         <div class="col-md-4">
             <h4>
-                Set Temporary Collection Day(under construction)
+                Set Temporary Collection Day Change(under construction)
+                @Html.ActionLink("Edit", "Schedule",  routeValues: new { id = Model.CustomerId }, htmlAttributes: new { title = "Editerino", @class = "btn btn-default btn-xs" })
             </h4>
         </div>
         <div class="col-md-4">
@@ -47,11 +48,38 @@
     </div>
     
     <br />
+    <div class="container">
+        <div class="row">
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                        <input type='text' class="form-control" />
+                        
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+            
+            </script>
+        </div>
+    </div>
     <br />
     <div>
 
     </div>
 
-</body>
 
-</html>
+@section Scripts
+    {
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker1').datetimepicker({
+                format: 'MM/DD/YYYY'
+            });
+        });
+            </script>
+    }
+
