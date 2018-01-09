@@ -14,12 +14,12 @@ namespace TrashCity.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            var userId = User.Identity.GetUserId();
-            if (User.IsInRole("Customer"))
+            
+            if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
             {
                 return RedirectToAction("Index", "CustomerModels");
             }
-            else if (User.IsInRole("Employee"))
+            else if (User.Identity.IsAuthenticated && User.IsInRole("Employee"))
             {
                 return RedirectToAction("Index", "EmployeeModels");
             }

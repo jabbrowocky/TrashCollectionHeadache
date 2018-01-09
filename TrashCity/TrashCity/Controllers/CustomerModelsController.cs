@@ -54,7 +54,7 @@ namespace TrashCity.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SetCollectionDay([Bind(Include = "CustomerId,CustomerFirstName,CustomerLastName,CustomerAddress,AmountOwed,CustomerZip,CollectionDay,UserId,User")]CustomerModel customerModel)
+        public ActionResult SetCollectionDay([Bind(Include = "CustomerId,CustomerFirstName,CustomerLastName,CustomerAddress,AmountOwed,CustomerZip,CollectionDay,UserId")]CustomerModel customerModel)
         //public ActionResult SetCollectionDay(int id)
         {
 
@@ -64,7 +64,7 @@ namespace TrashCity.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View("Home");
+            return View();
         }
 
         // GET: CustomerModels/Details/5
