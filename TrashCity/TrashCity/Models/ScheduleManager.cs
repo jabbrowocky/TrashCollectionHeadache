@@ -14,6 +14,6 @@ namespace TrashCity.Models
         [ForeignKey("CustomerId")]
         public CustomerModel customer { get; set; }
         public DateTime dateToChange { get; set; }
-        public DayOfWeek tempCollectionDay { get; set; }
+        public DayOfWeek? tempCollectionDay { get; set; }
     }
 }   

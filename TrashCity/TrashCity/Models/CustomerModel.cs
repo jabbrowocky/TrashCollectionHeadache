@@ -20,7 +20,7 @@ namespace TrashCity.Models
         public int CustomerZip { get; set; }
         public double AmountOwed { get; set; }
         [Display(Name = "Update which day you'd like your trash collected")]
-        public DayOfWeek CollectionDay { get; set; }
+        public DayOfWeek? CollectionDay { get; set; } = null;
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual ApplicationUser User { get; set; }

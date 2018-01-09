@@ -98,6 +98,7 @@ namespace TrashCity.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 customerModel.UserId = User.Identity.GetUserId();
                 db.CustomerModels.Add(customerModel);
                 db.SaveChanges();
