@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TrashCity.Models;
+using Microsoft.AspNet.Identity;
 
 namespace TrashCity.Controllers
 {
@@ -17,7 +18,53 @@ namespace TrashCity.Controllers
         // GET: CustomerModels
         public ActionResult Index()
         {
-            return View(db.CustomerModels.ToList());
+            var id = User.Identity.GetUserId();
+            CustomerModel customerModel = new CustomerModel();
+            foreach (CustomerModel customer in db.CustomerModels)
+            {
+                if (customer.UserId == id)
+                {
+                    customerModel = customer;
+                }
+
+            }
+
+            return View(customerModel);
+        }
+
+        public ActionResult SetCollectionDay()
+        {
+
+            var id = User.Identity.GetUserId();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            CustomerModel customerModel = new CustomerModel();
+            foreach (CustomerModel customer in db.CustomerModels)
+            {
+                if (customer.UserId == id)
+                {
+                    customerModel = customer;
+                }
+               
+            }
+                        
+            return View(customerModel);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SetCollectionDay([Bind(Include = "CustomerId,CustomerFirstName,CustomerLastName,CustomerAddress,AmountOwed,CustomerZip,CollectionDay,UserId,User")]CustomerModel customerModel)
+        //public ActionResult SetCollectionDay(int id)
+        {
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(customerModel).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View("Home");
         }
 
         // GET: CustomerModels/Details/5
@@ -38,6 +85,7 @@ namespace TrashCity.Controllers
         // GET: CustomerModels/Create
         public ActionResult Create()
         {
+            
             return View();
         }
 
@@ -50,6 +98,7 @@ namespace TrashCity.Controllers
         {
             if (ModelState.IsValid)
             {
+                customerModel.UserId = User.Identity.GetUserId();
                 db.CustomerModels.Add(customerModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -72,7 +121,7 @@ namespace TrashCity.Controllers
             }
             return View(customerModel);
         }
-
+       
         // POST: CustomerModels/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.

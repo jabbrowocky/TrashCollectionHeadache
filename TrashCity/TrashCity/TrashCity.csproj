@@ -225,6 +225,10 @@
     <Compile Include="Migrations\201801052042239_added a couple props to customer model.Designer.cs">
       <DependentUpon>201801052042239_added a couple props to customer model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801081741247_testyyyyyyyyyy.cs" />
+    <Compile Include="Migrations\201801081741247_testyyyyyyyyyy.Designer.cs">
+      <DependentUpon>201801081741247_testyyyyyyyyyy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CustomerModel.cs" />
@@ -305,6 +309,7 @@
     <Content Include="Views\CustomerModels\Details.cshtml" />
     <Content Include="Views\CustomerModels\Edit.cshtml" />
     <Content Include="Views\CustomerModels\Index.cshtml" />
+    <Content Include="Views\CustomerModels\SetCollectionDay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -333,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801052042239_added a couple props to customer model.resx">
       <DependentUpon>201801052042239_added a couple props to customer model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801081741247_testyyyyyyyyyy.resx">
+      <DependentUpon>201801081741247_testyyyyyyyyyy.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

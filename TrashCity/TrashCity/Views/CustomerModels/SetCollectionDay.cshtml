@@ -1,0 +1,44 @@
+﻿
+@model TrashCity.Models.CustomerModel
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    
+    <br />
+    <div>
+        @using (Html.BeginForm())
+
+        {
+
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                @Html.HiddenFor(model => model.CustomerId)
+                @Html.HiddenFor(model => model.CustomerFirstName)
+                @Html.HiddenFor(model => model.CustomerLastName)
+                @Html.HiddenFor(model => model.UserId)
+                @Html.HiddenFor(model => model.CustomerZip)
+                @Html.HiddenFor(model => model.CustomerAddress)
+                @Html.HiddenFor(model => model.AmountOwed)                
+                @Html.HiddenFor(model => model.User)
+                @Html.LabelFor(m => m.CollectionDay)                
+                @Html.EnumDropDownListFor(model => model.CollectionDay, "-Day of Week-", new { @class = "form-control" })
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Update" class="btn btn-default" />
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+
+</body>
+</html>

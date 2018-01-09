@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TrashCity.Models.CustomerModel>
+﻿@model TrashCity.Models.CustomerModel
 
 
 
@@ -15,12 +15,15 @@
 
             Hello @user
     </h2>
+        
+        <div>
+            <h3>Edit Collection Day: <br /></h3>
+           @Html.ActionLink("Edit Collection Day", "SetCollectionDay", routeValues: new { id = Model.CustomerId }, htmlAttributes: new { title = "Editerino", @class = "btn btn-default btn-xs" })
+        </div>
     <br />
     <br />
-    <div>
-        <h4>
-            Schedule the day of the week you'd like to recieve trash collection            
-        </h4>
+    <div>        
+        
     </div>
 
 </body>
