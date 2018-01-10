@@ -222,6 +222,10 @@
     <Compile Include="Migrations\201801092058401_updated scheduler.Designer.cs">
       <DependentUpon>201801092058401_updated scheduler.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801100257409_test.cs" />
+    <Compile Include="Migrations\201801100257409_test.Designer.cs">
+      <DependentUpon>201801100257409_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CustomerModel.cs" />
@@ -413,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801092058401_updated scheduler.resx">
       <DependentUpon>201801092058401_updated scheduler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801100257409_test.resx">
+      <DependentUpon>201801100257409_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

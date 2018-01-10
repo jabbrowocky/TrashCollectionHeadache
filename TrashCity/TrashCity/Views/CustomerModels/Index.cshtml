@@ -2,7 +2,6 @@
 
 
 
-
     <div class="jumbotron">        
         <h1>
             Your Trash Collection Portal
@@ -12,8 +11,7 @@
             @{ var userName = Model.CustomerFirstName;}
             Hello! @userName
         </h3>
-    </div>    
-    @{ var user = HttpContext.Current.User.Identity.Name; }
+    </div>     
     
     <br /><br />
     <div class="row">
@@ -35,9 +33,13 @@
         </div>
         <div class="col-md-4">
             <h4>
-                Set Temporary Collection Day Change(under construction)
-                @Html.ActionLink("Edit", "Schedule",  routeValues: new { id = Model.CustomerId }, htmlAttributes: new { title = "Editerino", @class = "btn btn-default btn-xs" })
+                Schedule a temporary pickup day change<br />
             </h4>
+           
+            <h4>Edit Collection Day: <br /></h4>
+                
+                @Html.ActionLink("Edit", "Schedule",  routeValues: new { id = Model.CustomerId }, htmlAttributes: new { title = "Editerino", @class = "btn btn-default btn-xs" })
+            
         </div>
         <div class="col-md-4">
             <h4>                
@@ -48,24 +50,7 @@
     </div>
     
     <br />
-    <div class="container">
-        <div class="row">
-            <div class='col-sm-6'>
-                <div class="form-group">
-                    <div class='input-group date' id='datetimepicker1'>
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                        <input type='text' class="form-control" />
-                        
-                    </div>
-                </div>
-            </div>
-            <script type="text/javascript">
-            
-            </script>
-        </div>
-    </div>
+    <hr />
     <br />
     <div>
 
@@ -75,10 +60,12 @@
 @section Scripts
     {
     <script type="text/javascript">
-        $(function () {
-            $('#datetimepicker1').datetimepicker({
-                format: 'MM/DD/YYYY'
-            });
+        $(function ()
+        {
+            $('#datetimepicker1').datetimepicker(
+                {
+                    format: 'MM/DD/YYYY'
+                });
         });
             </script>
     }

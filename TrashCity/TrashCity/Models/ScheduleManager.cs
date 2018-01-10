@@ -14,7 +14,8 @@ namespace TrashCity.Models
         public int CustomerId { get; set; }
         [ForeignKey("CustomerId")]
         public CustomerModel customer { get; set; }
-        public DateTime dateToChange { get; set; }
+        [Display(Name = "Date to reschedule pickup.")]
+        public DateTime? dateToChange { get; set; } = null;
         public DayOfWeek? temporaryCollectionDay { get; set; } = null;
     }
 }   

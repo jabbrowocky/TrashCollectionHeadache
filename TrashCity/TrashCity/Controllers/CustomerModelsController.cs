@@ -28,7 +28,8 @@ namespace TrashCity.Controllers
                 }
 
             }
-
+            
+            
             return View(customerModel);
         }
 
@@ -98,14 +99,22 @@ namespace TrashCity.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                scheduleManager.temporaryCollectionDay = scheduleManager.dateToChange.Value.DayOfWeek;
                 db.ScheduleManager.Add(scheduleManager);
-                db.SaveChanges();
+                foreach(ScheduleManager schedule in db.ScheduleManager)
+                {
+                    if (scheduleManager.CustomerId == schedule.CustomerId && scheduleManager.changeId != schedule.changeId)
+                    {
+                        db.ScheduleManager.Remove(schedule);
+                    }
+                }
+                db.SaveChanges(); //gives weird date time error, try to replicate.
                 return RedirectToAction("Index");
             }
 
             ViewBag.CustomerId = new SelectList(db.CustomerModels, "CustomerId", "CustomerFirstName", scheduleManager.CustomerId);
-            return View(scheduleManager);
+            ViewBag.Reschedule = scheduleManager.dateToChange.Value.ToString();
+            return View(ViewBag.Reschedule, scheduleManager);
         }
         // GET: CustomerModels/Details/5
         public ActionResult Details(int? id)
