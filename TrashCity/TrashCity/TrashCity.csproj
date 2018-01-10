@@ -226,6 +226,14 @@
     <Compile Include="Migrations\201801100257409_test.Designer.cs">
       <DependentUpon>201801100257409_test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801101417154_migrating to fix error.cs" />
+    <Compile Include="Migrations\201801101417154_migrating to fix error.Designer.cs">
+      <DependentUpon>201801101417154_migrating to fix error.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801101524432_updated schedule model.cs" />
+    <Compile Include="Migrations\201801101524432_updated schedule model.Designer.cs">
+      <DependentUpon>201801101524432_updated schedule model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CustomerModel.cs" />
@@ -420,6 +428,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801100257409_test.resx">
       <DependentUpon>201801100257409_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801101417154_migrating to fix error.resx">
+      <DependentUpon>201801101417154_migrating to fix error.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801101524432_updated schedule model.resx">
+      <DependentUpon>201801101524432_updated schedule model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

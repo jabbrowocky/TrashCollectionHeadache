@@ -17,7 +17,7 @@ namespace TrashCity.Controllers
         // GET: EmployeeModels
         public ActionResult Index()
         {
-            return View(db.EmployeeModels.ToList());
+            return View();
         }
 
         // GET: EmployeeModels/Details/5

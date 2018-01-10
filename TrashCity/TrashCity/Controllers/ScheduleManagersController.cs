@@ -17,7 +17,7 @@ namespace TrashCity.Controllers
         // GET: ScheduleManagers
         public ActionResult Index()
         {
-            var scheduleManager = db.ScheduleManager.Include(s => s.customer);
+            var scheduleManager = db.ScheduleManagers.Include(s => s.customer);
             return View(scheduleManager.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace TrashCity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ScheduleManager scheduleManager = db.ScheduleManager.Find(id);
+            ScheduleManager scheduleManager = db.ScheduleManagers.Find(id);
             if (scheduleManager == null)
             {
                 return HttpNotFound();
@@ -53,7 +53,7 @@ namespace TrashCity.Controllers
             if (ModelState.IsValid)
             {
                 
-                db.ScheduleManager.Add(scheduleManager);
+                db.ScheduleManagers.Add(scheduleManager);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -69,7 +69,7 @@ namespace TrashCity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ScheduleManager scheduleManager = db.ScheduleManager.Find(id);
+            ScheduleManager scheduleManager = db.ScheduleManagers.Find(id);
             if (scheduleManager == null)
             {
                 return HttpNotFound();
@@ -102,7 +102,7 @@ namespace TrashCity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ScheduleManager scheduleManager = db.ScheduleManager.Find(id);
+            ScheduleManager scheduleManager = db.ScheduleManagers.Find(id);
             if (scheduleManager == null)
             {
                 return HttpNotFound();
@@ -115,8 +115,8 @@ namespace TrashCity.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ScheduleManager scheduleManager = db.ScheduleManager.Find(id);
-            db.ScheduleManager.Remove(scheduleManager);
+            ScheduleManager scheduleManager = db.ScheduleManagers.Find(id);
+            db.ScheduleManagers.Remove(scheduleManager);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

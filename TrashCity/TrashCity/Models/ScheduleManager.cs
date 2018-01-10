@@ -16,6 +16,7 @@ namespace TrashCity.Models
         public CustomerModel customer { get; set; }
         [Display(Name = "Date to reschedule pickup.")]
         public DateTime? dateToChange { get; set; } = null;
-        public DayOfWeek? temporaryCollectionDay { get; set; } = null;
+        
+        public DayOfWeek temporaryCollectionDay { get; set; }
     }
 }   
