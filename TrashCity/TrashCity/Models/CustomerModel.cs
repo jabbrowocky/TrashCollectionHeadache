@@ -16,7 +16,9 @@ namespace TrashCity.Models
         public string CustomerFirstName { get; set; }
         [Display(Name = "Last Name")]
         public string CustomerLastName { get; set; }
+        [Display(Name = "Your Address")]
         public string CustomerAddress { get; set; }
+        [Display(Name = "Your Zip Code")]
         public int CustomerZip { get; set; }
         public double AmountOwed { get; set; }
         [Display(Name = "Update which day you'd like your trash collected")]
