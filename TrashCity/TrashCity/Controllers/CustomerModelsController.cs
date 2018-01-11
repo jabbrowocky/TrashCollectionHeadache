@@ -19,18 +19,21 @@ namespace TrashCity.Controllers
         public ActionResult Index()
         {
             var id = User.Identity.GetUserId();
+            
             CustomerModel customerModel = new CustomerModel();
             foreach (CustomerModel customer in db.CustomerModels)
             {
                 if (customer.UserId == id)
                 {
+
                     customerModel = customer;
+                    return View(customerModel);
                 }
 
-            }
+            }            
             
+            return RedirectToAction("Index","Home");
             
-            return View(customerModel);
         }
 
         public ActionResult SetCollectionDay()
@@ -86,6 +89,7 @@ namespace TrashCity.Controllers
             }
             ScheduleManager schedule = new ScheduleManager();
             schedule.CustomerId = customerModel.CustomerId;
+            ViewBag.reschedulerDate = schedule.dateToChange;
             return View(schedule);
             
         }
@@ -108,12 +112,13 @@ namespace TrashCity.Controllers
                         db.ScheduleManagers.Remove(schedule);
                     }
                 }
-                db.SaveChanges(); //gives weird date time error, try to replicate.
+                db.SaveChanges(); 
+                
                 return RedirectToAction("Index");
             }
 
             ViewBag.CustomerId = new SelectList(db.CustomerModels, "CustomerId", "CustomerFirstName", scheduleManager.CustomerId);
-            
+            ViewBag.rescheduleDate = scheduleManager.dateToChange;
             return View(scheduleManager);
         }
         // GET: CustomerModels/Details/5
